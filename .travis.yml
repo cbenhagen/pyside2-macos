@@ -14,10 +14,9 @@ matrix:
     os: osx
     osx_image: xcode6.4
     language: generic
-    # cache:
-    #   timeout: 2000
-    #   directories:
-    #     - ${QT_INSTALL_PATH}
+    cache:
+      directories:
+        - ${HOME}/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
 
   - env:
       - NAME="Python 3.5, Qt 5.6"
@@ -32,10 +31,9 @@ matrix:
     os: osx
     osx_image: xcode6.4
     language: generic
-    # cache:
-    #   timeout: 2000
-    #   directories:
-    #     - ${QT_INSTALL_PATH}
+    cache:
+      directories:
+        - ${HOME}/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
 
   - env:
       - NAME="Python 3.6, Qt 5.6"
@@ -50,10 +48,9 @@ matrix:
     os: osx
     osx_image: xcode6.4
     language: generic
-    # cache:
-    #   timeout: 2000
-    #   directories:
-    #     - ${QT_INSTALL_PATH}
+    cache:
+      directories:
+        - ${HOME}/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
 
   - env:
       - NAME="Python 2.7, Qt 5.9"
@@ -69,10 +66,9 @@ matrix:
     os: osx
     osx_image: xcode8.3
     language: generic
-    # cache:
-    #   timeout: 2000
-    #   directories:
-    #     - ${QT_INSTALL_PATH}
+    cache:
+      directories:
+        - ${HOME}/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
 
   - env:
       - NAME="Python 3.5, Qt 5.9"
@@ -88,10 +84,9 @@ matrix:
     os: osx
     osx_image: xcode8.3
     language: generic
-    # cache:
-    #   timeout: 2000
-    #   directories:
-    #     - ${QT_INSTALL_PATH}
+    cache:
+      directories:
+        - ${HOME}/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
 
   - env:
       - NAME="Python 3.6, Qt 5.9"
@@ -107,10 +102,9 @@ matrix:
     os: osx
     osx_image: xcode8.3
     language: generic
-    # cache:
-    #   timeout: 2000
-    #   directories:
-    #     - ${QT_INSTALL_PATH}
+    cache:
+      directories:
+        - ${HOME}/.ccache  # https://github.com/travis-ci/travis-ci/issues/5853
 
 
 before_install:
@@ -128,6 +122,10 @@ install:
 
   # Python
   - if [ "$BREW_PY" != "" ]; then brew install ${BREW_PY} ; fi
+
+  # ccache
+  - brew install ccache
+  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
 
   # pip
   - ${CI_PY} -m pip install --user --upgrade pip setuptools wheel
