@@ -59,7 +59,7 @@ matrix:
       - NAME="Python 2.7, Qt 5.9"
       - PYSIDE_BRANCH=5.9
       - QT_VER=5.9.4
-      - BREW_PY=""
+      - BREW_PY="python"
       - CI_PY=/usr/local/bin/python2
       - CI_CMAKE=/usr/local/bin/cmake
       - CI_QMAKE=${HOME}/Qt-${QT_VER}/${QT_VER}/clang_64/bin/qmake
@@ -67,7 +67,7 @@ matrix:
       - QT_INSTALLER_FILE=qt-opensource-mac-x64-${QT_VER}
       - QT_INSTALL_PATH=${HOME}/Qt-${QT_VER}
     os: osx
-    osx_image: xcode8.3
+    osx_image: xcode6.4
     language: generic
     # cache:
     #   timeout: 2000
@@ -86,7 +86,7 @@ matrix:
       - QT_INSTALLER_FILE=qt-opensource-mac-x64-${QT_VER}
       - QT_INSTALL_PATH=${HOME}/Qt-${QT_VER}
     os: osx
-    osx_image: xcode8.3
+    osx_image: xcode6.4
     language: generic
     # cache:
     #   timeout: 2000
@@ -105,7 +105,7 @@ matrix:
       - QT_INSTALLER_FILE=qt-opensource-mac-x64-${QT_VER}
       - QT_INSTALL_PATH=${HOME}/Qt-${QT_VER}
     os: osx
-    osx_image: xcode8.3
+    osx_image: xcode6.4
     language: generic
     # cache:
     #   timeout: 2000
